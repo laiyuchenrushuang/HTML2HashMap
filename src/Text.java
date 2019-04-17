@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
 public class Text {
 
 	public static void main(String[] args) {
-		// ²âÊÔµÄurl = http://www.cqccms.com.cn/incoc/GSViewEbike!viewCocEbike.action?vinCode=117321900000001
+		// æµ‹è¯•çš„url = http://www.cqccms.com.cn/incoc/GSViewEbike!viewCocEbike.action?vinCode=117321900000001
 		HashMap<String, String> data = new HashMap();
 
 		String html = LYHTML.getHtmlString();
