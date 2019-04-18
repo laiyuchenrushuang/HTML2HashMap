@@ -32,10 +32,10 @@ public class Text {
 	public static void main(String[] args) {
 
 		// # HTML2HashMap
-		// #×¢ÒâÀïÃæµÄÍøÖ·Ò»°ãÓÃÍøÂçÇëÇó£¬±ÈÈçokhttp£¬ÔÚresponseÀïÃæÏÔÊ¾ÊÇhtmlµÄ´úÂë£¬Éú³ÉµÄhashmap¿ÉÒÔÖ±½Ó×ª»¯³Éjson×Ö·û´®
-		// #ÍøÖ·²âÊÔÁ¬½Ó£º²âÊÔµÄurl =
+		// #æ³¨æ„é‡Œé¢çš„ç½‘å€ä¸€èˆ¬ç”¨ç½‘ç»œè¯·æ±‚ï¼Œæ¯”å¦‚okhttpï¼Œåœ¨responseé‡Œé¢æ˜¾ç¤ºæ˜¯htmlçš„ä»£ç ï¼Œç”Ÿæˆçš„hashmapå¯ä»¥ç›´æ¥è½¬åŒ–æˆjsonå­—ç¬¦ä¸²
+		// #ç½‘å€æµ‹è¯•è¿æ¥ï¼šæµ‹è¯•çš„url =
 		// http://www.cqccms.com.cn/incoc/GSViewEbike!viewCocEbike.action?vinCode=117321900000001
-		// ²âÊÔµÄurl =
+		// æµ‹è¯•çš„url =
 		// http://www.cqccms.com.cn/incoc/GSViewEbike!viewCocEbike.action?vinCode=117321900000001
 		LinkedHashMap<String, String> data = new LinkedHashMap();
 
@@ -50,10 +50,8 @@ public class Text {
 			num++;
 		}
 		System.out.println(data.toString());
-		System.out.println(
-				"-------------------------------------------------------------------------------------------------------------------------------------------------------------");
-
-		// ¶ÁĞ´Excel
+		System.out.println("=======================================================================================================");
+		// è¯»å†™Excel
 		try {
 			readExcel();
 			
@@ -69,31 +67,31 @@ public class Text {
 		}
 		System.out.println("=======================================================================================================");
 		String filePath= "D:\\works\\111.xlsx";
-		//½âÎöxlsx¸ñÊ½µÄÎÄ¼ş
+		//è§£æxlsxæ ¼å¼çš„æ–‡ä»¶
 		XlsxParse.readxlsxFile(filePath);
 
 	}
 
-	// È¥¶ÁExcelµÄ·½·¨readExcel£¬¸Ã·½·¨µÄÈë¿Ú²ÎÊıÎªÒ»¸öFile¶ÔÏó
+	// å»è¯»Excelçš„æ–¹æ³•readExcelï¼Œè¯¥æ–¹æ³•çš„å…¥å£å‚æ•°ä¸ºä¸€ä¸ªFileå¯¹è±¡
 	private static void readExcel() throws BiffException, IOException {
 		String path = "D:\\works\\sss.xls";
 		File xlsFile = new File(path);
 //		if (path.contains("xlsx")) {
 //			xlsFile.renameTo(new File("D:\\works\\111.xls"));
 //		}
-		// »ñµÃ¹¤×÷²¾¶ÔÏó
+		// è·å¾—å·¥ä½œç°¿å¯¹è±¡
 		Workbook workbook = Workbook.getWorkbook(xlsFile);
-		// »ñµÃËùÓĞ¹¤×÷±í
+		// è·å¾—æ‰€æœ‰å·¥ä½œè¡¨
 		Sheet[] sheets = workbook.getSheets();
-		// ±éÀú¹¤×÷±í
+		// éå†å·¥ä½œè¡¨
 		if (sheets != null) {
 			for (Sheet sheet : sheets) {
-				// »ñµÃĞĞÊı
+				// è·å¾—è¡Œæ•°
 				int rows = sheet.getRows();
-				// »ñµÃÁĞÊı
+				// è·å¾—åˆ—æ•°
 				int cols = sheet.getColumns();
 				System.out.println(rows + " " + cols);
-				// ¶ÁÈ¡Êı¾İ
+				// è¯»å–æ•°æ®
 				for (int row = 0; row < rows; row++) {
 					for (int col = 0; col < cols; col++) {
 						Cell cell = sheet.getCell(col, row);
@@ -109,14 +107,14 @@ public class Text {
 	private static void writeExcel() throws IOException, RowsExceededException, WriteException {
 
 		File xlsFile = new File("D:\\works\\sss1.xls");
-		// ´´½¨Ò»¸ö¹¤×÷²¾
+		// åˆ›å»ºä¸€ä¸ªå·¥ä½œç°¿
 		WritableWorkbook workbook = Workbook.createWorkbook(xlsFile);
-		// ´´½¨Ò»¸ö¹¤×÷±í
+		// åˆ›å»ºä¸€ä¸ªå·¥ä½œè¡¨
 		WritableSheet sheet = workbook.createSheet("sheet1", 0);
-		// ÏòĞĞºÍÁĞÖĞĞ´Êı¾İ
+		// å‘è¡Œå’Œåˆ—ä¸­å†™æ•°æ®
 		for (int row = 0; row < 10; row++) {
 			for (int col = 0; col < 10; col++) {
-				// Ïò¹¤×÷±íÖĞÌí¼ÓÊı¾İ
+				// å‘å·¥ä½œè¡¨ä¸­æ·»åŠ æ•°æ®
 				sheet.addCell(new Label(col, row, "data" + row + col));
 			}
 		}
