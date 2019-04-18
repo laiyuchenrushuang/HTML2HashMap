@@ -19,7 +19,7 @@ public class XlsxParse {
 
 	public static void readxlsxFile(String filePath) {
 
-		Workbook wb = null;
+	Workbook wb = null;
         if(filePath==null){
             return ;
         }
@@ -36,15 +36,15 @@ public class XlsxParse {
                  return;
             }
             
-          //ÓÃÀ´´æ·Å±íÖĞÊı¾İ
+            //ç”¨æ¥å­˜æ”¾è¡¨ä¸­æ•°æ®
             List list = new ArrayList<Map<String,String>>();
-            //»ñÈ¡µÚÒ»¸ösheet
+            //è·å–ç¬¬ä¸€ä¸ªsheet
             Sheet sheet = wb.getSheetAt(0);
-            //»ñÈ¡×î´óĞĞÊı
+            //è·å–æœ€å¤§è¡Œæ•°
             int rownum = sheet.getPhysicalNumberOfRows();
-            //»ñÈ¡µÚÒ»ĞĞ
+            //è·å–ç¬¬ä¸€è¡Œ
             Row row = sheet.getRow(0);
-            //»ñÈ¡×î´óÁĞÊı
+            //è·å–æœ€å¤§åˆ—æ•°
             int colnum = row.getPhysicalNumberOfCells();
             Map<String,String> map = new LinkedHashMap<String,String>();
             for (int i = 0;i<rownum;i++) {
@@ -59,7 +59,6 @@ public class XlsxParse {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-		
-	}
+        }	
+    }
 }
