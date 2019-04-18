@@ -11,8 +11,8 @@ public class Text {
 
 	public static void main(String[] args) {
 		// 测试的url = http://www.cqccms.com.cn/incoc/GSViewEbike!viewCocEbike.action?vinCode=117321900000001
-		HashMap<String, String> data = new HashMap();
-
+		//HashMap<String, String> data = new HashMap();
+                LinkedHashMap<String, String> data = new LinkedHashMap();//有序的HashMap集合
 		String html = LYHTML.getHtmlString();
 		Document doc = Jsoup.parse(html);
 		Elements rows = doc.select("[class=biaotifontblue]").select("td");
